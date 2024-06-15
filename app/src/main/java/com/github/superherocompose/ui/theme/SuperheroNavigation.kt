@@ -9,8 +9,8 @@ class SuperheroNavigation {
         object Screem2 : Routes("screem2?superheroitem={superheroitem}") {
             fun createRoute(superheroItem: SuperheroItem) = "superheroitem=$superheroItem"
         }
-    }
-
+    }}
+/**
 
     val navigationController = rememberNavController()
     NavHost(navController = navigationController, startDestination = Routes.Screem1.route)
@@ -23,4 +23,4 @@ class SuperheroNavigation {
             Screem6(navigationController, backStackEntry.arguments?.getString("name"))
         }
     }
-}}}}
+}}}}*/

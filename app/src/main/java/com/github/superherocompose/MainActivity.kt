@@ -25,13 +25,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SuperheroReciclerview()
+                    SuperheroItemScreem(SuperheroItem("Superman",  R.drawable.ic_launcher_foreground))
                     }
                 }
             }
         }
     }
-}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
