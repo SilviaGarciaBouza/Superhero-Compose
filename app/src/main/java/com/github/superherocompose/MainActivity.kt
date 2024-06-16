@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SuperheroItemScreem(SuperheroItem("Superman",  R.drawable.ic_launcher_foreground))
+                    SuperheroReciclerview()
                     }
                 }
             }
