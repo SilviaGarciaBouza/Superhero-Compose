@@ -21,9 +21,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @Composable
-fun SuperheroItemScreem(superheroItem: SuperheroItem){
+fun SuperheroItemScreem(navigationControler: NavHostController, id: Int){
     Card (
         modifier = Modifier
             .fillMaxWidth()
@@ -36,7 +37,7 @@ fun SuperheroItemScreem(superheroItem: SuperheroItem){
             .fillMaxSize()
             .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween) {
             Image(
-                painter = painterResource(id = superheroItem.sHImage),
+                painter = painterResource(id = mySuperheroList.get(id).sHImage),
                 contentDescription = "superhero image",
                 modifier = Modifier
                     .weight(3f)
@@ -44,7 +45,7 @@ fun SuperheroItemScreem(superheroItem: SuperheroItem){
             )
             Column (modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally){
                 Text(
-                    text = superheroItem.sHName, modifier = Modifier
+                    text = mySuperheroList.get(id).sHName, modifier = Modifier
                         .background(Color.Black)
                         .fillMaxSize()
                         .align(Alignment.CenterHorizontally),

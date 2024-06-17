@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -38,29 +39,31 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.superherocompose.R
 import androidx.compose.material.*
+import androidx.navigation.NavHostController
+import com.github.superherocompose.MainActivity
+import com.github.superherocompose.Routes
 
 
-
-
-class SuperheroItem(val sHName: String, @DrawableRes var sHImage: Int)
-val mySuperheroList: List<SuperheroItem> = listOf(SuperheroItem("Superman",  R.drawable.ic_launcher_foreground), SuperheroItem("Catwoman",  R.drawable.ic_launcher_background))
+class SuperheroItem(val sHName: String, @DrawableRes var sHImage: Int, val shID: Int)
+val mySuperheroList: List<SuperheroItem> = listOf(SuperheroItem("Superman",  R.drawable.ic_launcher_foreground, 1), SuperheroItem("Catwoman",  R.drawable.ic_launcher_background, 2))
 
 
 @Composable
-fun ItemSuperHero(superheroItem: SuperheroItem, onClickItem: (SuperheroItem) -> Unit) {
+fun ItemSuperHero(navigationControler: NavHostController, superheroItem: SuperheroItem, onClickItem: (SuperheroItem) -> Unit) {
     Card(
         border = BorderStroke(1.dp, Color.DarkGray),
         modifier = Modifier
             .width(200.dp)
-            //.clickable { onClickItem(superHero2) }
+            .clickable { onClickItem }
             .padding(top = 8.dp, bottom = 8.dp, end = 16.dp, start = 16.dp)) {
-        Column() {
+        Column(modifier = Modifier) {
 
             Image(
                 painterResource(id = superheroItem.sHImage),
                 contentDescription = "Superhero image",
                 modifier = Modifier.fillMaxWidth(),
                 contentScale = ContentScale.Crop
+
             )
             Text(text = superheroItem.sHName)
         }
@@ -72,15 +75,15 @@ fun ItemSuperHero(superheroItem: SuperheroItem, onClickItem: (SuperheroItem) -> 
 
 
 @Composable
-fun SuperheroReciclerview() {
+fun SuperheroReciclerview(navigationControler:NavHostController) {
     val context = LocalContext.current
     //fixed el nº de columnas, .Adptive(80.dp) si lo quieres por medida
     LazyVerticalGrid(columns = GridCells.Fixed(2), content = {
         items(mySuperheroList) {
             //En el {} lo q quieres q haga al clicar
-            ItemSuperHero(
+            ItemSuperHero( navigationControler,
                 superheroItem = it,
-                { Toast.makeText(context, it.sHName, Toast.LENGTH_SHORT).show() })
+                { navigationControler.navigate(Routes.ScreemItem.createRoute(id = it.shID)) })
         }
         //contentOaddings es el margen en los bordes
     }, contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp))
