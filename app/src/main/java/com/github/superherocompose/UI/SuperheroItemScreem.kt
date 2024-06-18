@@ -43,12 +43,13 @@ fun SuperheroItemScreem(navigationControler: NavHostController, id: Int){
                     .weight(3f)
                     .fillMaxWidth()
             )
-            Column (modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally){
+            Column (modifier = Modifier.weight(1f).align(Alignment.CenterHorizontally), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally){
                 Text(
                     text = mySuperheroList.get(id).sHName, modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
                         .background(Color.Black)
                         .fillMaxSize()
-                        .align(Alignment.CenterHorizontally),
+                        ,
                     color = Color.White,
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold

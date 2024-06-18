@@ -53,8 +53,8 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
     Card(
         border = BorderStroke(1.dp, Color.DarkGray),
         modifier = Modifier
+            .clickable { onClickItem(superheroItem) }
             .width(200.dp)
-            .clickable { onClickItem }
             .padding(top = 8.dp, bottom = 8.dp, end = 16.dp, start = 16.dp)) {
         Column(modifier = Modifier) {
 
@@ -65,7 +65,7 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
                 contentScale = ContentScale.Crop
 
             )
-            Text(text = superheroItem.sHName)
+            Text(text = superheroItem.sHName, modifier = Modifier.align(Alignment.CenterHorizontally))
         }
     }
 }
@@ -89,14 +89,3 @@ fun SuperheroReciclerview(navigationControler:NavHostController) {
     }, contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp))
 
 }
-/**
-@Composable
-fun lSuperheroReciclerview() {
-    LazyColumn{
-        items(mySuperheroList){
-            Image(painterResource(id = it.sHImage), contentDescription = "superhero image")
-            Text(text = "${it.sHName}")
-        }
-    }
-
-}*/
