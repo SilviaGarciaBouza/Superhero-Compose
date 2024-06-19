@@ -1,4 +1,11 @@
 package com.github.superherocompose.UI
 
-class SuperheroViewModel {
+import androidx.lifecycle.ViewModel
+import com.github.superherocompose.data.SuperheroRepositoty
+import kotlinx.coroutines.flow.Flow
+
+class SuperheroViewModel: ViewModel() {
+
+    
 }
+
