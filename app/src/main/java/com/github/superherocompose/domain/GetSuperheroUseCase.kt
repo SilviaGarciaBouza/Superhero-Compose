@@ -1,6 +1,6 @@
 package com.github.superherocompose.domain
 
-import com.github.superherocompose.UI.SuperheroItem
+import com.github.superherocompose.UI.*
 import com.github.superherocompose.data.SuperheroDataDetailResponse
 import com.github.superherocompose.data.SuperheroRepositoty
 

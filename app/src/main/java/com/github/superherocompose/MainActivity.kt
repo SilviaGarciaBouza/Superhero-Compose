@@ -17,10 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.github.superherocompose.UI.SuperheroItem
 import com.github.superherocompose.UI.SuperheroItemScreem
 import com.github.superherocompose.UI.SuperheroReciclerview
-import com.github.superherocompose.UI.mySuperheroList
 import com.github.superherocompose.ui.theme.SuperheroComposeTheme
 
 class MainActivity : ComponentActivity() {

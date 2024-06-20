@@ -1,13 +1,14 @@
 package com.github.superherocompose.ui.theme
 
 import androidx.navigation.compose.rememberNavController
-import com.github.superherocompose.UI.SuperheroItem
+import com.github.superherocompose.UI.*
 
 class SuperheroNavigation {
     sealed class Routes(val route: String) {
         object Screem1 : Routes("screem1")
         object Screem2 : Routes("screem2?superheroitem={superheroitem}") {
-            fun createRoute(superheroItem: SuperheroItem) = "superheroitem=$superheroItem"
+           //TODO ROUTE
+        // fun createRoute(superheroItem: SuperheroItem) = "superheroitem=$superheroItem"
         }
     }}
 /**
