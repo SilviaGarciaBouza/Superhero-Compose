@@ -9,11 +9,15 @@ import retrofit2.http.Path
 
 interface SuperHeroClient {
   /**  @GET(value = "/api/3373221366270737/search/{name}")*/
-    suspend fun getSuperheros(/*@Path("name") superheroName: String*/): Response<SuperheroDataResponse>
+  @GET(value = "/api/3373221366270737/search/super")
+  suspend fun getSuperheros(/*@Path("name") superheroName: String*/): Response<SuperheroDataResponse>
     @GET("/api/3373221366270737/{id}")
     suspend fun getSuperheroDetail(@Path("id") superheroId: String): Response<SuperheroDataDetailResponse>
 
 }
+
+
+
 
 //AL buscar por name
 //@SerializedName("response") el response  y el resultses el nombre q tiene en el json.
