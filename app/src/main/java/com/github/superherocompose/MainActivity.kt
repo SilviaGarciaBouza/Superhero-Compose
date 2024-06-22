@@ -10,6 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.navigation.NavType
@@ -17,8 +18,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.github.superherocompose.UI.*
 import com.github.superherocompose.UI.SuperheroItemScreem
-import com.github.superherocompose.UI.SuperheroReciclerview
 import com.github.superherocompose.ui.theme.SuperheroComposeTheme
 
 class MainActivity : ComponentActivity() {

@@ -28,7 +28,7 @@ import com.github.superherocompose.data.SuperheroItemResponse
 
 @Composable
 fun SuperheroItemScreem(navigationControler: NavHostController, id: Int){
-
+val viewModel = SuperheroViewModel()
     Card (
         modifier = Modifier
             .fillMaxWidth()
@@ -36,12 +36,17 @@ fun SuperheroItemScreem(navigationControler: NavHostController, id: Int){
         //elevation = 12.dp,
         shape = MaterialTheme.shapes.small,
         border = BorderStroke(5.dp, Color.Black)
-    ){
+    ){/**
         Column (modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween) {
-           // TODO Image and text
-           /**
+            AsyncImage(
+                model = viewModel.callSuperheroItem(id),
+                contentDescription = "superhero image",
+                modifier = Modifier.fillMaxWidth(),
+                contentScale = ContentScale.Crop
+            )*/
+            /**
             AsyncImage(
                 model = superheroItem.imageSuperhero,
                 contentDescription = "superhero image",
@@ -65,4 +70,4 @@ fun SuperheroItemScreem(navigationControler: NavHostController, id: Int){
             }
 
         }
-    }
+

@@ -20,7 +20,13 @@ class SuperheroViewModel: ViewModel() {
             getSuperheroListUseCase()
         }
     }
+/**
+    fun callSuperheroItem(id: Int): SuperheroItemResponse{
+        return runBlocking {
+          getSuperheroListUseCase.repositoty.getSuperheros().get(id)
+        }
+    }
 
-
+*/
 }
 

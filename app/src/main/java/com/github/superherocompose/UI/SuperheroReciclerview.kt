@@ -67,23 +67,36 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
             .clickable { onClickItem(superheroItem) }
             .width(200.dp)
             .padding(top = 8.dp, bottom = 8.dp, end = 16.dp, start = 16.dp)) {
-        Column(modifier = Modifier) {
+        /** Column(modifier = Modifier) {
 
-          AsyncImage(
-                model = superheroItem.imageSuperhero,
+        AsyncImage(
+        model = superheroItem.imageSuperhero,
+        contentDescription = "superhero image",
+        contentScale = ContentScale.Crop
+        )
+
+
+        Image(painter = superheroItem.imageSuperhero, contentDescription = )
+        Text(text = superheroItem.nameSuperhero, modifier = Modifier.align(Alignment.CenterHorizontally))
+        }*/
+        Column() {
+            AsyncImage(
+                model = superheroItem.imageSuperhero.urlSuperhero,
                 contentDescription = "superhero image",
                 modifier = Modifier.fillMaxWidth(),
                 contentScale = ContentScale.Crop
-          )
-
-
-
-            Text(text = superheroItem.nameSuperhero, modifier = Modifier.align(Alignment.CenterHorizontally))
+            )
+            Text(
+                text = superheroItem.nameSuperhero,
+                modifier = Modifier
+                    .padding(4.dp)
+                    .align(alignment = Alignment.CenterHorizontally),
+                fontSize = 22.sp,
+                maxLines = 1
+            )
         }
     }
 }
-
-
 
 
 
