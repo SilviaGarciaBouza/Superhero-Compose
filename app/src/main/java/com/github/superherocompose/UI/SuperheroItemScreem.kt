@@ -32,11 +32,14 @@ val viewModel = SuperheroViewModel()
     Card (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(12.dp),
+            .padding(10.dp),
         //elevation = 12.dp,
         shape = MaterialTheme.shapes.small,
         border = BorderStroke(5.dp, Color.Black)
-    ){/**
+    ){
+
+
+        /**
         Column (modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween) {
