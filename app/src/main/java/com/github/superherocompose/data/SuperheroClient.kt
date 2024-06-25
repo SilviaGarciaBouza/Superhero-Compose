@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface SuperHeroClient {
   /**  @GET(value = "/api/3373221366270737/search/{name}")*/
-  @GET(value = "/api/3373221366270737/search/super")
+  @GET(value = "/api/3373221366270737/search/a")
   suspend fun getSuperheros(/*@Path("name") superheroName: String*/): Response<SuperheroDataResponse>
     @GET("/api/3373221366270737/{id}")
     suspend fun getSuperheroDetail(@Path("id") superheroId: String): Response<SuperheroDataDetailResponse>

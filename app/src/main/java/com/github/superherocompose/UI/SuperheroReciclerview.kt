@@ -111,7 +111,7 @@ fun SuperheroReciclerview(navigationControler:NavHostController) {
             //En el {} lo q quieres q haga al clicar
             ItemSuperHero( navigationControler,
                 superheroItem = it,
-                { navigationControler.navigate(Routes.ScreemItem.createRoute(id = it.idSuperhero.toInt())) })
+                { navigationControler.navigate(Routes.ScreemItem.createRoute(id = it.idSuperhero)) })
         }
         //contentOaddings es el margen en los bordes
     }, contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp))

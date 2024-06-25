@@ -8,7 +8,7 @@ class SuperheroNavigation {
         object Screem1 : Routes("screem1")
         object Screem2 : Routes("screem2?superheroitem={superheroitem}") {
            //TODO ROUTE
-        // fun createRoute(superheroItem: SuperheroItem) = "superheroitem=$superheroItem"
+       // fun createRoute(superheroItem: SuperheroItem) = "superheroitem=$superheroItem"
         }
     }}
 /**
