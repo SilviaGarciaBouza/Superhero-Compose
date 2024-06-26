@@ -21,6 +21,7 @@ import coil.compose.AsyncImage
 @Composable
 fun SuperheroItemScreem(navigationControler: NavHostController, id: String){
 val viewModel = SuperheroViewModel()
+    val idSuperhero = id.toInt()-1
     Card (
         modifier = Modifier
             .fillMaxWidth()
@@ -31,9 +32,9 @@ val viewModel = SuperheroViewModel()
     ){
         Column (modifier = Modifier
             .fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
-            AsyncImage(model = viewModel.callSuperheroItem(id).imageSuperhero.urlSuperhero, contentDescription = "Superhero image", modifier = Modifier.fillMaxWidth().weight(2f),
+            AsyncImage(model = viewModel.callSuperheroItem(idSuperhero.toString() ).imageSuperhero.urlSuperhero, contentDescription = "Superhero image", modifier = Modifier.fillMaxWidth().weight(2f),
                 contentScale = ContentScale.Crop)
-            Text(text = viewModel.callSuperheroList().get(id.toInt()).nameSuperhero, modifier = Modifier.weight(1f))
+            Text(text = viewModel.callSuperheroList().get(idSuperhero).nameSuperhero, modifier = Modifier.weight(1f))
         }
 
             }
