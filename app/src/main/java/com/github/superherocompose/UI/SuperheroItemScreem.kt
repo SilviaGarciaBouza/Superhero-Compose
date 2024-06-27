@@ -1,7 +1,9 @@
 package com.github.superherocompose.UI
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 
@@ -25,16 +28,25 @@ val viewModel = SuperheroViewModel()
     Card (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp),
+            .padding(14.dp),
         //elevation = 12.dp,
         shape = MaterialTheme.shapes.small,
         border = BorderStroke(5.dp, Color.Black)
     ){
         Column (modifier = Modifier
             .fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
-            AsyncImage(model = viewModel.callSuperheroItem(idSuperhero.toString() ).imageSuperhero.urlSuperhero, contentDescription = "Superhero image", modifier = Modifier.fillMaxWidth().weight(2f),
+            AsyncImage(model = viewModel.callSuperheroItem(idSuperhero.toString() ).imageSuperhero.urlSuperhero, contentDescription = "Superhero image", modifier = Modifier
+                .fillMaxWidth()
+                .weight(2f),
                 contentScale = ContentScale.Crop)
-            Text(text = viewModel.callSuperheroList().get(idSuperhero).nameSuperhero, modifier = Modifier.weight(1f))
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Black), Alignment.Center){
+                Text(text = viewModel.callSuperheroList().get(idSuperhero).nameSuperhero,
+                    color = Color.White, fontSize = 33.sp)
+            }
         }
 
             }

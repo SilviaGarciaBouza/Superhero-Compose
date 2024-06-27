@@ -39,6 +39,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.superherocompose.R
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.text.font.FontLoadingStrategy.Companion.Async
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -99,23 +107,42 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 
 @Composable
 fun SuperheroReciclerview(navigationControler:NavHostController) {
+
+
     val context = LocalContext.current
     val viewModel = SuperheroViewModel()
+    Column {
 
-    //fixed el nº de columnas, .Adptive(80.dp) si lo quieres por medida
-    LazyVerticalGrid(columns = GridCells.Fixed(2), content = {
-        items(viewModel.callSuperheroList()) {
-            //En el {} lo q quieres q haga al clicar
-            ItemSuperHero( navigationControler,
-                superheroItem = it,
-                { navigationControler.navigate(Routes.ScreemItem.createRoute(id = it.idSuperhero)) })
-        }
-        //contentOaddings es el margen en los bordes
-    }, contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp))
 
+        TopAppBar(
+            title = {
+                Text(
+                    text = "Superhero List",
+                    color = Color.Black,
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Color.Black)
+                .padding(12.dp)
+
+        )
+        //fixed el nº de columnas, .Adptive(80.dp) si lo quieres por medida
+        LazyVerticalGrid(columns = GridCells.Fixed(2), content = {
+            items(viewModel.callSuperheroList()) {
+                //En el {} lo q quieres q haga al clicar
+                ItemSuperHero(navigationControler,
+                    superheroItem = it,
+                    { navigationControler.navigate(Routes.ScreemItem.createRoute(id = it.idSuperhero)) })
+            }
+            //contentOaddings es el margen en los bordes
+        }, contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp))
+
+
+    }
 }
-
 
