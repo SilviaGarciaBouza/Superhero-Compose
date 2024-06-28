@@ -46,8 +46,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.text.font.FontLoadingStrategy.Companion.Async
+import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.github.superherocompose.MainActivity
@@ -118,17 +120,15 @@ fun SuperheroReciclerview(navigationControler:NavHostController) {
     Column {
 
 
-        TopAppBar(
+        TopAppBar(modifier = Modifier.fillMaxWidth(),
             title = {
-                Text(
+                Text(textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
                     text = "Superhero List",
-                    color = Color.Black,
+
                 )
             },
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(color = Color.Black)
-                .padding(12.dp)
+
 
         )
         //fixed el nº de columnas, .Adptive(80.dp) si lo quieres por medida
