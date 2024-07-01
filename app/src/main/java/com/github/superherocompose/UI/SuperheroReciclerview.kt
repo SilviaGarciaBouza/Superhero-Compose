@@ -72,11 +72,11 @@ import coil.compose.AsyncImage
 fun ItemSuperHero(navigationControler: NavHostController, superheroItem: SuperheroItemResponse, onClickItem: (SuperheroItemResponse) -> Unit) {
 
     Card(
-        border = BorderStroke(1.dp, Color.DarkGray),
+        border = BorderStroke(1.dp, Color.Black),
         modifier = Modifier
             .clickable { onClickItem(superheroItem) }
             .width(200.dp)
-            .padding(top = 8.dp, bottom = 8.dp, end = 16.dp, start = 16.dp)) {
+            .padding(top = 8.dp, bottom = 8.dp, end = 8.dp, start = 8.dp)) {
         /** Column(modifier = Modifier) {
 
         AsyncImage(
@@ -101,8 +101,10 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
                 modifier = Modifier
                     .padding(4.dp)
                     .align(alignment = Alignment.CenterHorizontally),
+
                 fontSize = 22.sp,
-                maxLines = 1
+                maxLines = 1,
+                color = Color.Black
             )
         }
     }
