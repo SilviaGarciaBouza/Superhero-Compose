@@ -47,6 +47,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.text.font.FontLoadingStrategy.Companion.Async
 import androidx.compose.ui.text.style.TextAlign
@@ -90,6 +94,7 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
         Text(text = superheroItem.nameSuperhero, modifier = Modifier.align(Alignment.CenterHorizontally))
         }*/
         Column() {
+
             AsyncImage(
                 model = superheroItem.imageSuperhero.urlSuperhero,
                 contentDescription = "superhero image",
@@ -111,7 +116,11 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+
+
+
+        @OptIn(ExperimentalMaterial3Api::class)
 
 @Composable
 fun SuperheroReciclerview(navigationControler:NavHostController) {
