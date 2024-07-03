@@ -45,6 +45,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.getValue
@@ -75,24 +76,14 @@ import coil.compose.AsyncImage
 @Composable
 fun ItemSuperHero(navigationControler: NavHostController, superheroItem: SuperheroItemResponse, onClickItem: (SuperheroItemResponse) -> Unit) {
 
+
     Card(
         border = BorderStroke(1.dp, Color.Black),
         modifier = Modifier
             .clickable { onClickItem(superheroItem) }
             .width(200.dp)
             .padding(top = 8.dp, bottom = 8.dp, end = 8.dp, start = 8.dp)) {
-        /** Column(modifier = Modifier) {
 
-        AsyncImage(
-        model = superheroItem.imageSuperhero,
-        contentDescription = "superhero image",
-        contentScale = ContentScale.Crop
-        )
-
-
-        Image(painter = superheroItem.imageSuperhero, contentDescription = )
-        Text(text = superheroItem.nameSuperhero, modifier = Modifier.align(Alignment.CenterHorizontally))
-        }*/
         Column() {
 
             AsyncImage(
@@ -126,22 +117,33 @@ fun ItemSuperHero(navigationControler: NavHostController, superheroItem: Superhe
 fun SuperheroReciclerview(navigationControler:NavHostController) {
 
 
-    val context = LocalContext.current
+  //  val context = LocalContext.current
     val viewModel = SuperheroViewModel()
     Column {
 
+        var sizeFirstStatus by rememberSaveable { mutableStateOf(value = true) }
+        val sizeFirstText = if (sizeFirstStatus){33.sp}else{50.sp}
 
-        TopAppBar(modifier = Modifier.fillMaxWidth(),
+        val colorTextFirst = if (sizeFirstStatus){Color.Black}else{Color.Blue}
+        TopAppBar(
+            modifier = Modifier.fillMaxWidth(),
             title = {
-                Text(textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth(),
-                    text = "Superhero List",
+                    Text(
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { sizeFirstStatus = !sizeFirstStatus },
+                        text = "Superhero List",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = sizeFirstText,
+                        color = colorTextFirst
 
-                )
+                    )
+
             },
 
 
-        )
+            )
         //fixed el nº de columnas, .Adptive(80.dp) si lo quieres por medida
         LazyVerticalGrid(columns = GridCells.Fixed(2), content = {
             items(viewModel.callSuperheroList()) {
