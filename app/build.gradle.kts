@@ -75,8 +75,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    testImplementation ("junit:junit:4.+")
 
     implementation("io.coil-kt:coil-compose:2.4.0")
+
 
 
     //Test
@@ -85,5 +87,5 @@ dependencies {
     debugImplementation ("androidx.compose.ui:ui-test-manifest:$1.7.0")
 
     //MOckk
-    testImplementation ("io.mockk:mockk:1.12.2")
+   testImplementation ("io.mockk:mockk:1.13.0")
 }
