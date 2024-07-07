@@ -86,6 +86,8 @@ dependencies {
     debugImplementation ("androidx.compose.ui:ui-tooling:$1.7.0")
     debugImplementation ("androidx.compose.ui:ui-test-manifest:$1.7.0")
 
+
+
     //MOckk
-   testImplementation ("io.mockk:mockk:1.13.0")
+    testImplementation ("io.mockk:mockk:1.12.2")
 }
